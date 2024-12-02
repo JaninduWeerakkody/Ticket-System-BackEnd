@@ -9,9 +9,7 @@ public class TicketServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TicketServiceApplication.class, args);
 
-		// Example: Simulate ticket release
-		// TicketReleaseThread releaseThread = new TicketReleaseThread(ticketService, vendorId);
-		// releaseThread.start();
+
 	}
 
 }
