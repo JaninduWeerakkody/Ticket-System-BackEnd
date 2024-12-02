@@ -1,0 +1,17 @@
+package com.janindu.ticket;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TicketServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TicketServiceApplication.class, args);
+
+		// Example: Simulate ticket release
+		// TicketReleaseThread releaseThread = new TicketReleaseThread(ticketService, vendorId);
+		// releaseThread.start();
+	}
+
+}
