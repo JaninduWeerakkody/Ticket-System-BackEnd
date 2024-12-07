@@ -31,12 +31,13 @@ public class MainService {
         configRepository.deleteAll();
     }
 
-    public void startSystem(Optional<MainConfig> config, TicketPool ticketPool) {
+    public void startSystem(TicketPool ticketPool) {
+        Optional<MainConfig> config = getConfig();
         if (config.isEmpty()) {
             throw new IllegalStateException("No configuration found. Please configure the system first.");
         }
         threadService.configure(config.get(), ticketPool);
-        threadService.startThreads();
+        threadService.startThreads(ticketPool); // Pass ticketPool for live logging
     }
 
     public void stopSystem() {

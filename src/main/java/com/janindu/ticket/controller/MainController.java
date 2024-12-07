@@ -51,7 +51,7 @@ public class MainController {
         if (config.isEmpty()) {
             return ResponseEntity.badRequest().body("Configuration not found. Please configure the system first.");
         }
-        mainService.startSystem(config, ticketPool);
+        mainService.startSystem(ticketPool);  // Pass TicketPool directly
         loggingService.addLog("System started successfully.");
         return ResponseEntity.ok("System started successfully!");
     }

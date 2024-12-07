@@ -1,6 +1,5 @@
 package com.janindu.ticket.model;
 
-import jakarta.persistence.*;
 import com.janindu.ticket.service.LoggingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +22,7 @@ public class Vendor implements Runnable {
     public void run() {
         for (int i = 0; i < ticketsToRelease; i++) {
             if (releaseTicket()) break;
-            delay(100);
+            delay(500); // Adjusted delay for slower ticket release
         }
     }
 
@@ -35,7 +34,7 @@ public class Vendor implements Runnable {
             }
             String ticket = "Ticket-" + System.nanoTime();
             ticketPool.addTicket(ticket);
-            logMessage("Added " + ticket);
+            logMessage("Added " + ticket + ". Current ticket count: " + ticketPool.getCurrentTicketCount());
         }
         return false;
     }

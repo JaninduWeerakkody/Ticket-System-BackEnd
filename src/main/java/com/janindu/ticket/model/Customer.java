@@ -1,7 +1,5 @@
 package com.janindu.ticket.model;
 
-import jakarta.persistence.*;
-
 import com.janindu.ticket.service.LoggingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +27,13 @@ public class Customer implements Runnable {
                         loggingService.addLog(logMessage);
                     } else {
                         String ticket = ticketPool.removeTicket();
-                        String logMessage = Thread.currentThread().getName() + ": Purchased " + ticket;
+                        String logMessage = Thread.currentThread().getName() + ": Purchased " + ticket +
+                                ". Current ticket count: " + ticketPool.getCurrentTicketCount();
                         logger.info(logMessage);
                         loggingService.addLog(logMessage);
                     }
                 }
-                Thread.sleep(300); // Simulate delay
+                Thread.sleep(700); // Adjusted delay for slower ticket purchase
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 String logMessage = Thread.currentThread().getName() + ": Customer interrupted";
