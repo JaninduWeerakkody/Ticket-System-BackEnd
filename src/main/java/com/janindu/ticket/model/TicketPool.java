@@ -37,6 +37,11 @@ public class TicketPool {
         return tickets.size();
     }
 
+    // **Updated Method to Get Current Ticket Count**
+    public synchronized int getCurrentTicketCount() {
+        return getAvailableTickets();
+    }
+
     private void logMessage(String message) {
         logger.info(message);
         loggingService.addLog(message);

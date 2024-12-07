@@ -73,4 +73,16 @@ public class MainController {
         loggingService.clearLogs();
         return ResponseEntity.ok("Logs cleared successfully!");
     }
+
+    @GetMapping("/tickets/count")
+    public ResponseEntity<Map<String, Integer>> getRealTimeTicketCount() {
+        int ticketCount = ticketPool.getCurrentTicketCount(); // Assuming getCurrentTicketCount() returns an integer
+        Map<String, Integer> response = new HashMap<>();
+        response.put("ticketsAvailable", ticketCount);
+
+        // Return JSON response with Content-Type: application/json
+        return ResponseEntity.ok()
+                .header("Content-Type", "application/json") // Ensures the response is marked as JSON
+                .body(response);
+    }
 }
