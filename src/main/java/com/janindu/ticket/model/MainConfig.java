@@ -28,7 +28,7 @@ public class MainConfig {
 
     @NotNull(message = "Max ticket capacity cannot be null")
     @Min(value = 1, message = "Max ticket capacity must be at least 1")
-    private Integer maxTicketCapacity;
+    Integer maxTicketCapacity;
 
     @NotNull(message = "Number of vendors cannot be null")
     @Min(value = 1, message = "At least 1 vendor is required")
@@ -40,9 +40,7 @@ public class MainConfig {
 
     private boolean active;
 
-    public MainConfig() {
-        // Default Constructor
-    }
+    public MainConfig() {}
 
     public MainConfig(Integer totalTickets, Integer ticketReleaseRate, Integer customerRetrievalRate,
                       Integer maxTicketCapacity, Integer numberOfVendors, Integer numberOfCustomers, boolean active) {
@@ -119,6 +117,7 @@ public class MainConfig {
         this.active = active;
     }
 
+    // toString method to return a string representation of the MainConfig object
     @Override
     public String toString() {
         return "MainConfig{" +
